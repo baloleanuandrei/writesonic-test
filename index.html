@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article Input</title>
+</head>
+<body>
+
+<form action="#" method="post">
+    <div>
+        <label for="article_title">Article Title:</label>
+        <input type="text" id="article_title" name="article_title" required>
+    </div>
+    
+    <div>
+        <label for="article_intro">Article Introduction:</label>
+        <textarea id="article_intro" name="article_intro" rows="4" required></textarea>
+    </div>
+    
+    <div id="sections">
+        <label>Article Sections:</label>
+        <div>
+            <input type="text" name="article_sections[]" placeholder="Section 1">
+        </div>
+    </div>
+    
+    <button type="button" onclick="addSection()">Add Another Section</button>
+    
+    <div>
+        <input type="submit" value="Submit">
+    </div>
+</form>
+
+<script>
+    function addSection() {
+        const sectionDiv = document.createElement('div');
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.name = 'article_sections[]';
+        input.placeholder = 'New section';
+        sectionDiv.appendChild(input);
+        document.getElementById('sections').appendChild(sectionDiv);
+    }
+</script>
+
+</body>
+</html>
